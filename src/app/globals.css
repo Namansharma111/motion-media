@@ -1,0 +1,197 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-bebas: 'Bebas Neue', sans-serif;
+    --font-outfit: 'Outfit', sans-serif;
+    --font-syne: 'Syne', sans-serif;
+  }
+}
+
+/* Lenis Smooth Scroll Recommended Base Styles */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+
+.font-bebas {
+  font-family: var(--font-bebas), sans-serif;
+  letter-spacing: 0.04em;
+}
+
+.font-syne {
+  font-family: var(--font-syne), sans-serif;
+}
+
+.font-sans {
+  font-family: var(--font-outfit), sans-serif;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #08090e;
+}
+::-webkit-scrollbar-thumb {
+  background: #2b388f;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #e5192c;
+}
+
+/* Text Mask Video Effect */
+.text-video-mask {
+  background: linear-gradient(135deg, rgba(229, 25, 44, 0.9), rgba(43, 56, 143, 0.9)),
+              url('https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1400&q=80');
+  background-size: cover;
+  background-position: center;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Metallic Motion Text Gradient */
+.text-glow-gradient {
+  background: linear-gradient(135deg, #ffffff 0%, #dbeafe 50%, #93c5fd 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-brand-gradient {
+  background: linear-gradient(135deg, #ff2038 0%, #ff6b7b 50%, #ccff00 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Noise texture overlay */
+.bg-noise {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+/* Animated Rotating Badge */
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spinSlow 14s linear infinite;
+}
+
+/* Pulse Glow */
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(229, 25, 44, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(229, 25, 44, 0.8), 0 0 20px rgba(204, 255, 0, 0.5);
+  }
+}
+
+.pulse-glow {
+  animation: pulseGlow 3s infinite;
+}
+
+/* Marquee infinite scroll */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: 200%;
+  animation: marquee 22s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Custom Clip Paths for Motion Graphic Shapes */
+.clip-diagonal {
+  clip-path: polygon(0 0, 100% 0, 92% 100%, 0% 100%);
+}
+
+.clip-badge {
+  clip-path: polygon(10% 0%, 90% 0%, 100% 50%, 90% 100%, 10% 100%, 0% 50%);
+}
+
+/* GPU-Accelerated Smooth SVG Underline Motion */
+@keyframes drawStroke {
+  0% {
+    stroke-dashoffset: 600;
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes strokeFlow {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: -40;
+  }
+}
+
+@keyframes sparkGlide {
+  0%, 100% {
+    transform: translateX(0%);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateX(380%);
+    opacity: 1;
+  }
+}
+
+.animate-draw-line {
+  stroke-dasharray: 600;
+  stroke-dashoffset: 600;
+  animation: drawStroke 1.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: stroke-dashoffset;
+}
+
+.animate-dashed-flow {
+  animation: strokeFlow 3s linear infinite;
+  will-change: stroke-dashoffset;
+}
+
+.animate-spark-glide {
+  animation: sparkGlide 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  will-change: transform;
+}
