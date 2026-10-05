@@ -19,8 +19,8 @@ const syne = Syne({
 });
 
 export const metadata: Metadata = {
-  title: "MOTION MEDIA | Motion Graphics, Video Production & Product Studio",
-  description: "Next-gen studio for high-converting product photoshoots, commercial videos, YouTube video production, and kinetic 3D motion graphics.",
+  title: "MOTION MEDIA | Video Production, Product Photography & Creative Studio",
+  description: "Next-gen studio for Video Production, Product Photography, Podcast Production, YouTube Content, Brand & Corporate Films, and Creative Direction.",
 };
 
 export default function RootLayout({

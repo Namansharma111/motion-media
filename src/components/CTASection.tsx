@@ -168,7 +168,7 @@ export const CTASection: React.FC<CTASectionProps> = ({ onOpenBrief, onOpenReel 
           <p className="mt-8 text-slate-600 font-sans text-lg sm:text-2xl max-w-3xl mx-auto font-normal leading-relaxed">
             Elevate your products, YouTube channel, and brand ad campaigns into{" "}
             <strong className="text-slate-900 font-semibold">hyper-engaging motion art</strong>. 
-            Product Photoshoots, Commercial Videos & 3D Visual Effects.
+            Product Photoshoots, Commercial Videos & Creative Direction.
           </p>
         </div>
 

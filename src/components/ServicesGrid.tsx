@@ -2,9 +2,35 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Camera, Film, Video, Sparkles, Check, ArrowRight, Play, Eye, Layers } from "lucide-react";
+import {
+  Video,
+  Box,
+  Mic,
+  Building2,
+  Lightbulb,
+  Check,
+  ArrowRight,
+  Play,
+  Eye,
+  Layers,
+} from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+const YoutubeIcon: React.FC<{ className?: string }> = ({ className }) => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.75"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={className}
+  >
+    <path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.56 49.56 0 0 1-16.2 0A2 2 0 0 1 2.5 17" />
+    <polygon points="10 15 15 12 10 9 10 15" fill="currentColor" />
+  </svg>
+);
 
 interface ServicesGridProps {
   onOpenBrief: () => void;
@@ -20,33 +46,15 @@ export const ServicesGrid: React.FC<ServicesGridProps> = ({ onOpenBrief }) => {
 
   const services = [
     {
-      id: "photoshoot",
-      title: "Product Photoshoots & 3D Renders",
-      subtitle: "High-End E-Commerce & Advertising Imagery",
-      icon: Camera,
-      tag: "COMMERCIAL & E-COM",
-      badgeColor: "bg-[#EE1C25]",
-      bgImage: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1000&q=80",
-      description:
-        "Hyper-realistic 3D product renders, macro studio photography, shadow plays, and dynamic product liquid/motion setups designed for high Amazon, Shopify, and social conversion rates.",
-      features: [
-        "360° Interactive Studio Render",
-        "Macro Liquid & Texture Close-ups",
-        "E-commerce Ready White & Lifestyle BG",
-        "AI Enhanced Color Grading",
-      ],
-      metric: "3.4x CTR Boost",
-    },
-    {
-      id: "commercial",
-      title: "Commercial & Teaser Video Production",
-      subtitle: "Cinematic Motion Ads & Brand Films",
-      icon: Film,
+      id: "video-production",
+      title: "Video Production",
+      subtitle: "Commercials · Brand Films · Social",
+      icon: Video,
       tag: "BRAND ADS & CAMPAIGNS",
-      badgeColor: "bg-[#2B388F]",
+      badgeColor: "bg-[#EE1C25] text-white",
       bgImage: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1000&q=80",
       description:
-        "High-energy video commercials with custom sound design, color grading, visual effects, and kinetic speed ramps that hook viewers in the first 3 seconds.",
+        "High-energy video commercials with custom sound design, color grading, visual speed ramps, and kinetic hooks that capture viewer attention in the first 3 seconds.",
       features: [
         "Scriptwriting & Storyboard Concept",
         "4K Cinema Camera Production",
@@ -56,15 +64,51 @@ export const ServicesGrid: React.FC<ServicesGridProps> = ({ onOpenBrief }) => {
       metric: "120M+ Views",
     },
     {
-      id: "youtube",
-      title: "YouTube Production & Channel Growth",
-      subtitle: "Retention-Engineered Editing & Thumbnails",
-      icon: Video,
+      id: "product-photography",
+      title: "Product Photography",
+      subtitle: "E-commerce · Lifestyle · Ads",
+      icon: Box,
+      tag: "COMMERCIAL & E-COM",
+      badgeColor: "bg-[#2B388F] text-white",
+      bgImage: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1000&q=80",
+      description:
+        "High-end studio photography, macro texture close-ups, shadow plays, and dynamic product setups designed for high Amazon, Shopify, and social conversion rates.",
+      features: [
+        "Macro Texture & Close-ups",
+        "E-commerce Ready White & Lifestyle BG",
+        "Studio Lighting & Reflection Controls",
+        "AI Enhanced Color Grading",
+      ],
+      metric: "3.4x CTR Boost",
+    },
+    {
+      id: "podcast-production",
+      title: "Podcast Production",
+      subtitle: "Audio · Video · Editing",
+      icon: Mic,
+      tag: "AUDIO & VIDEO PODCASTS",
+      badgeColor: "bg-purple-600 text-white",
+      bgImage: "https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&w=1000&q=80",
+      description:
+        "Full multi-camera podcast recording and post-production. We handle multi-angle camera switching, studio audio mastering, lower thirds, and viral social clips.",
+      features: [
+        "Multi-Cam Video Angle Cut",
+        "Studio Audio Mastering & Noise Reduction",
+        "Animated Speaker Lower Thirds",
+        "Shorts & Reels Highlight Snippets",
+      ],
+      metric: "4.9/5 Rating",
+    },
+    {
+      id: "youtube-content",
+      title: "YouTube Content",
+      subtitle: "Channel Growth · Strategy",
+      icon: YoutubeIcon,
       tag: "VIRAL YOUTUBE EDITING",
-      badgeColor: "bg-red-600",
+      badgeColor: "bg-red-600 text-white",
       bgImage: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&w=1000&q=80",
       description:
-        "Turn raw vlogs and tech reviews into viral youtube hits. We handle retention graphics, animated lower thirds, sound design, sound effects, and high-CTR custom thumbnails.",
+        "Turn raw vlogs and videos into viral YouTube hits. We handle retention graphics, animated lower thirds, sound design, sound effects, and high-CTR custom thumbnails.",
       features: [
         "Pacing & Storyline Retention Cut",
         "Custom Kinetic Motion Callouts",
@@ -74,22 +118,40 @@ export const ServicesGrid: React.FC<ServicesGridProps> = ({ onOpenBrief }) => {
       metric: "82% Avg Retention",
     },
     {
-      id: "motion3d",
-      title: "3D Motion Graphics & VFX",
-      subtitle: "Futuristic Kinetic Visuals & Title Sequences",
-      icon: Sparkles,
-      tag: "KINETIC ANIMATION",
+      id: "brand-corporate-films",
+      title: "Brand & Corporate Films",
+      subtitle: "Storytelling · Internal · Ads",
+      icon: Building2,
+      tag: "CORPORATE STORYTELLING",
+      badgeColor: "bg-blue-600 text-white",
+      bgImage: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000&q=80",
+      description:
+        "Cinematic brand films, company origin stories, and internal corporate media designed to convey prestige, build trust, and showcase brand authority.",
+      features: [
+        "Executive Interviews & Scripting",
+        "Cinematic B-Roll & Drone Shots",
+        "Custom Score & Sound Design",
+        "Internal & Public Campaign Cuts",
+      ],
+      metric: "100% Brand Impact",
+    },
+    {
+      id: "creative-direction",
+      title: "Creative Direction",
+      subtitle: "Concept · Casting · Production",
+      icon: Lightbulb,
+      tag: "END-TO-END DIRECTION",
       badgeColor: "bg-[#CCFF00] text-black",
       bgImage: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1000&q=80",
       description:
-        "Elevate your brand with 3D logo stings, HUD motion graphics, animated UI product walkthroughs, fluid particle simulation, and cinematic intro openers.",
+        "Full-service creative direction from initial brand strategy to talent casting, mood boards, set design, and executive production oversight.",
       features: [
-        "Unreal Engine / Cinema 4D 3D Anim",
-        "Kinetic Typography & Title Stings",
-        "Logo Animation & Identity Packages",
-        "Seamless Loop Visualizers",
+        "Concept & Mood Boarding",
+        "Talent & Model Casting",
+        "Art Direction & Set Styling",
+        "Full Production Management",
       ],
-      metric: "100% Original Motion",
+      metric: "Award-Winning Style",
     },
   ];
 
@@ -122,7 +184,7 @@ export const ServicesGrid: React.FC<ServicesGridProps> = ({ onOpenBrief }) => {
             opacity: 1,
             y: 0,
             scale: 1,
-            stagger: 0.1,
+            stagger: 0.08,
             duration: 0.8,
             ease: "power3.out",
             scrollTrigger: {
@@ -183,16 +245,23 @@ export const ServicesGrid: React.FC<ServicesGridProps> = ({ onOpenBrief }) => {
         
         {/* Section Header */}
         <div ref={headerRef} className="text-center max-w-3xl mx-auto mb-16">
+          <div className="flex items-center justify-center gap-2 mb-3">
+            <span className="w-5 h-[2px] bg-[#EE1C25]" />
+            <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#EE1C25]">
+              OUR SERVICES
+            </span>
+            <span className="w-5 h-[2px] bg-[#EE1C25]" />
+          </div>
           <h2 className="font-bebas text-5xl sm:text-7xl text-white uppercase tracking-tight">
-            WHAT WE <span className="text-[#EE1C25]">CREATE & ANIMATE</span>
+            CREATIVE SOLUTIONS <span className="text-[#EE1C25]">FOR EVERY STORY</span>
           </h2>
           <p className="mt-3 text-slate-400 font-sans text-base sm:text-lg font-light">
-            Tailored visual storytelling built for maximum aesthetic appeal, click-through rate, and brand dominance.
+            From brand films to product shoots, YouTube content to podcasts — we handle it all with creativity, technology and a focus on results.
           </p>
         </div>
 
-        {/* Tab Navigation Pill Bar */}
-        <div ref={tabsRef} className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-10">
+        {/* Tab Navigation Pill Bar - 6 Services */}
+        <div ref={tabsRef} className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 mb-10">
           {services.map((service, index) => {
             const Icon = service.icon;
             const isSelected = activeTab === index;
@@ -215,15 +284,15 @@ export const ServicesGrid: React.FC<ServicesGridProps> = ({ onOpenBrief }) => {
                   >
                     <Icon className="w-5 h-5" />
                   </div>
-                  <span className={`text-[10px] font-bebas tracking-wider px-2 py-0.5 rounded ${service.badgeColor}`}>
-                    {service.tag}
+                  <span className={`text-[9px] font-bebas tracking-wider px-2 py-0.5 rounded ${service.badgeColor}`}>
+                    {service.tag.split(" ")[0]}
                   </span>
                 </div>
                 <div>
-                  <h3 className="font-bebas text-xl sm:text-2xl text-white tracking-wide">
+                  <h3 className="font-bebas text-lg sm:text-xl text-white tracking-wide">
                     {service.title}
                   </h3>
-                  <p className="text-xs text-slate-400 font-sans line-clamp-1 mt-1">
+                  <p className="text-[11px] text-slate-400 font-sans line-clamp-1 mt-1">
                     {service.subtitle}
                   </p>
                 </div>
@@ -324,7 +393,7 @@ export const ServicesGrid: React.FC<ServicesGridProps> = ({ onOpenBrief }) => {
                 {/* Overlay Badge */}
                 <div className="absolute top-4 right-4 bg-[#08090E]/90 backdrop-blur-md px-3 py-1.5 rounded-lg border border-slate-700 text-xs font-mono text-[#CCFF00] flex items-center gap-1.5">
                   <span className="w-2 h-2 rounded-full bg-[#CCFF00] animate-ping" />
-                  <span>4K RENDERING ACTIVE</span>
+                  <span>4K PRODUCTION ACTIVE</span>
                 </div>
 
                 <div className="absolute bottom-4 left-4 right-4 p-4 rounded-xl bg-[#08090E]/85 backdrop-blur-md border border-slate-800 flex items-center justify-between">
@@ -348,3 +417,5 @@ export const ServicesGrid: React.FC<ServicesGridProps> = ({ onOpenBrief }) => {
     </section>
   );
 };
+
+

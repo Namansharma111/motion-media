@@ -20,9 +20,9 @@ export const SelectedWorks: React.FC<SelectedWorksProps> = ({ onOpenReel }) => {
   const projects = [
     {
       id: 1,
-      title: "APEX CYBER-PODS 3D PRODUCT COMMERCIAL",
+      title: "APEX CYBER-PODS PRODUCT COMMERCIAL",
       category: "product",
-      categoryName: "Product Photoshoot & 3D Render",
+      categoryName: "Product Photography",
       client: "Apex Audio Global",
       metrics: "3.8M Views • +320% Conversion",
       image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=80",
@@ -50,9 +50,9 @@ export const SelectedWorks: React.FC<SelectedWorksProps> = ({ onOpenReel }) => {
     },
     {
       id: 4,
-      title: "CYBERPUNK HUD 3D KINETIC TITLE STING",
-      category: "motion",
-      categoryName: "3D Motion Graphics & VFX",
+      title: "CYBERPUNK KINETIC TITLE STING",
+      category: "creative",
+      categoryName: "Creative Direction",
       client: "Future Gaming Fest",
       metrics: "4K Render • 60 FPS",
       image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=800&q=80",
@@ -62,7 +62,7 @@ export const SelectedWorks: React.FC<SelectedWorksProps> = ({ onOpenReel }) => {
       id: 5,
       title: "LUXURY SMARTWATCH PRODUCT SHOOT",
       category: "product",
-      categoryName: "Product Photoshoot & Lighting",
+      categoryName: "Product Photography & Lighting",
       client: "Aero Watchmaker Paris",
       metrics: "+410% Amazon CTR",
       image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=80",
@@ -150,7 +150,7 @@ export const SelectedWorks: React.FC<SelectedWorksProps> = ({ onOpenReel }) => {
               { id: "product", label: "Product Shoots" },
               { id: "commercial", label: "Commercial Ads" },
               { id: "youtube", label: "YouTube Production" },
-              { id: "motion", label: "3D Motion & VFX" },
+              { id: "creative", label: "Creative Direction" },
             ].map((btn) => (
               <button
                 key={btn.id}

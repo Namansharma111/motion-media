@@ -35,7 +35,7 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
           <span className={`text-[10px] tracking-[0.25em] font-semibold uppercase -mt-1 ${
             darkText ? "text-slate-500" : "text-slate-400"
           }`}>
-            Visual Studio & VFX
+            VIDEO & CREATIVE STUDIO
           </span>
         </div>
       )}

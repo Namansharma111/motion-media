@@ -10,12 +10,12 @@ export const MarqueeTicker: React.FC = () => {
   const itemsRef = useRef<HTMLDivElement>(null);
 
   const items = [
-    "PRODUCT PHOTOSHOOTS",
-    "COMMERCIAL VIDEO ADS",
-    "YOUTUBE GROWTH EDITING",
-    "3D KINETIC MOTION GRAPHICS",
-    "COLOR GRADING & VFX",
-    "AUDIO SOUND DESIGN",
+    "VIDEO PRODUCTION",
+    "PRODUCT PHOTOGRAPHY",
+    "PODCAST PRODUCTION",
+    "YOUTUBE CONTENT",
+    "BRAND & CORPORATE FILMS",
+    "CREATIVE DIRECTION",
   ];
 
   useEffect(() => {

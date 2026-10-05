@@ -88,7 +88,7 @@ export const BeforeAfterVideoSlider: React.FC = () => {
             SEE THE <span className="text-[#EE1C25]">MOTION MAGIC</span> DIFFERENCE
           </h2>
           <p className="mt-3 text-slate-600 font-sans text-base sm:text-lg font-normal">
-            Drag the slider across to see raw unedited camera footage upgraded with our custom 3D motion graphics, kinetic typography & color grading.
+            Drag the slider across to see raw unedited camera footage upgraded with our custom motion graphics, kinetic typography & color grading.
           </p>
         </div>
 
@@ -114,8 +114,8 @@ export const BeforeAfterVideoSlider: React.FC = () => {
             <div className="absolute inset-0 bg-gradient-to-tr from-[#EE1C25]/30 via-transparent to-[#CCFF00]/20 mix-blend-screen" />
             
             <div className="absolute bottom-12 right-12 bg-[#08090E]/90 border border-[#CCFF00] text-white p-4 rounded-2xl shadow-2xl backdrop-blur-md">
-              <div className="text-[#CCFF00] text-xs font-mono font-bold uppercase">✦ 3D MOTION GRADED</div>
-              <div className="font-bebas text-xl">KINETIC SOUND + VFX ADDED</div>
+              <div className="text-[#CCFF00] text-xs font-mono font-bold uppercase">✦ CINEMATIC GRADED</div>
+              <div className="font-bebas text-xl">PRO SOUND & KINETIC MOTION</div>
             </div>
 
             {/* Label for After Side */}

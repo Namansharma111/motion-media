@@ -32,10 +32,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
   const categories = [
     { id: "all", label: "All Works", icon: Flame },
-    { id: "product", label: "Product Photoshoot", icon: Camera },
+    { id: "product", label: "Product Photography", icon: Camera },
     { id: "video", label: "Commercial Video", icon: Film },
-    { id: "youtube", label: "YouTube Growth", icon: Video },
-    { id: "motion", label: "3D Motion Graphic", icon: Sparkles },
+    { id: "youtube", label: "YouTube Content", icon: Video },
+    { id: "creative", label: "Creative Direction", icon: Sparkles },
   ];
 
   useEffect(() => {
@@ -150,7 +150,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         <div className="flex items-center gap-2">
           <span className="w-2 h-2 rounded-full bg-[#CCFF00] animate-ping" />
           <span className="text-[10px] font-mono font-bold text-[#CCFF00] uppercase tracking-wider">
-            CINEMATIC 3D RENDER
+            CINEMATIC BRAND FILM
           </span>
         </div>
         <div className="font-bebas text-xl text-white tracking-wide">60 FPS KINETIC RAYS</div>

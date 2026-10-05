@@ -14,12 +14,12 @@ export const FAQSection: React.FC = () => {
 
   const faqs = [
     {
-      q: "What is the typical turnaround time for a 3D Motion Graphic or Product Video?",
-      a: "Our standard delivery timeframe is 3 to 5 business days for commercial videos and 3D product renders. Express 48-hour priority rush is available for tight launch deadlines.",
+      q: "What is the typical turnaround time for a Video or Product Shoot?",
+      a: "Our standard delivery timeframe is 3 to 5 business days for commercial videos and product shoots. Express 48-hour priority rush is available for tight launch deadlines.",
     },
     {
       q: "Do you handle Product Photoshoots directly or require shipped physical samples?",
-      a: "Both! You can ship your physical product to our studio, OR send us 2D photos/CAD files which our 3D artists turn into hyper-realistic 3D renders and macro motion videos.",
+      a: "You can ship your physical product to our studio, or send us high-res photo assets and brand guidelines for lifestyle composite and studio setups.",
     },
     {
       q: "How do you optimize YouTube Videos for high retention and views?",

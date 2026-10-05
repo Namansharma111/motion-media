@@ -59,13 +59,13 @@ export const ShowreelModal: React.FC<ShowreelModalProps> = ({ isOpen, onClose })
               src="https://www.pexels.com/download/video/15705885/"
             />
 
-            {/* Glowing VFX overlay */}
+            {/* Glowing Graphic overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-70 pointer-events-none" />
 
             {/* Kinetic Graphic HUD overlay */}
             <div className="absolute top-4 left-4 bg-black/70 backdrop-blur-md px-3 py-1.5 rounded-lg border border-slate-700 text-xs font-mono text-[#CCFF00] flex items-center gap-2">
               <Sparkles className="w-3.5 h-3.5" />
-              <span>RENDER ENGINE: UNREAL + CINEMA 4D</span>
+              <span>VIDEO ENGINE: CINEMA 4K PRO</span>
             </div>
 
             <div className="absolute top-4 right-4 bg-black/70 backdrop-blur-md px-3 py-1.5 rounded-lg border border-slate-700 text-xs font-mono text-slate-300">
@@ -124,7 +124,7 @@ export const ShowreelModal: React.FC<ShowreelModalProps> = ({ isOpen, onClose })
           <div className="p-4 sm:p-6 bg-[#0E1220] flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-2 text-xs text-slate-300">
               <CheckCircle2 className="w-4 h-4 text-[#CCFF00]" />
-              <span>Includes Product Shoots, Brand Comms, YouTube Shorts & 3D Visualizer Reels</span>
+              <span>Includes Product Shoots, Brand Comms, YouTube Shorts & Creative Direction</span>
             </div>
 
             <button

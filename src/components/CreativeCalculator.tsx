@@ -12,7 +12,7 @@ interface CreativeCalculatorProps {
 export const CreativeCalculator: React.FC<CreativeCalculatorProps> = ({
   onOpenBriefWithDetails,
 }) => {
-  const [serviceType, setServiceType] = useState("commercial");
+  const [serviceType, setServiceType] = useState("video");
   const [duration, setDuration] = useState("30s");
   const [rushOrder, setRushOrder] = useState(false);
   const [formatCount, setFormatCount] = useState("all");
@@ -22,10 +22,12 @@ export const CreativeCalculator: React.FC<CreativeCalculatorProps> = ({
   const calcCardRef = useRef<HTMLDivElement>(null);
 
   const servicePrices: Record<string, { base: number; name: string }> = {
-    photoshoot: { base: 450, name: "Product Photoshoot & 3D Renders" },
-    commercial: { base: 850, name: "Commercial & Ad Video Production" },
-    youtube: { base: 600, name: "YouTube Video Production & Growth Edit" },
-    motion3d: { base: 1100, name: "3D Motion Graphics & VFX Opener" },
+    video: { base: 850, name: "Video Production" },
+    photoshoot: { base: 450, name: "Product Photography" },
+    podcast: { base: 550, name: "Podcast Production" },
+    youtube: { base: 600, name: "YouTube Content" },
+    corporate: { base: 950, name: "Brand & Corporate Films" },
+    creative: { base: 750, name: "Creative Direction" },
   };
 
   const durationMultipliers: Record<string, number> = {
@@ -79,7 +81,7 @@ export const CreativeCalculator: React.FC<CreativeCalculatorProps> = ({
   }, []);
 
   const calculatePrice = () => {
-    const base = servicePrices[serviceType].base;
+    const base = servicePrices[serviceType]?.base || 850;
     const mult = durationMultipliers[duration] || 1.0;
     let total = base * mult;
     if (rushOrder) total += 350;
@@ -90,7 +92,7 @@ export const CreativeCalculator: React.FC<CreativeCalculatorProps> = ({
   const getEstimatedDays = () => {
     if (rushOrder) return "2 Business Days (Express Rush)";
     if (serviceType === "photoshoot") return "3-4 Business Days";
-    if (serviceType === "motion3d") return "5-6 Business Days";
+    if (serviceType === "podcast") return "3-4 Business Days";
     return "4-5 Business Days";
   };
 
@@ -131,7 +133,7 @@ export const CreativeCalculator: React.FC<CreativeCalculatorProps> = ({
               <label className="block text-xs font-mono uppercase tracking-wider text-slate-500 mb-3 font-semibold">
                 1. SELECT SERVICE TYPE
               </label>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                 {Object.entries(servicePrices).map(([key, val]) => (
                   <button
                     key={key}

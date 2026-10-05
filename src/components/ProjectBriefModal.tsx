@@ -19,7 +19,7 @@ export const ProjectBriefModal: React.FC<ProjectBriefModalProps> = ({
     name: "",
     email: "",
     brand: "",
-    service: "commercial",
+    service: "video",
     budget: "$1k - $3k",
     notes: "",
   });
@@ -69,7 +69,7 @@ export const ProjectBriefModal: React.FC<ProjectBriefModalProps> = ({
                 PROJECT BRIEF SUBMITTED SUCCESSFULLY!
               </h3>
               <p className="text-slate-300 text-sm max-w-md mx-auto">
-                Our Motion Director will review your specifications and email you a full 3D storyboard & timeline proposal within 2 hours.
+                Our Creative Director will review your specifications and email you a full storyboard & timeline proposal within 2 hours.
               </p>
             </div>
           ) : (
@@ -122,10 +122,12 @@ export const ProjectBriefModal: React.FC<ProjectBriefModalProps> = ({
                       onChange={(e) => setFormData({ ...formData, service: e.target.value })}
                       className="w-full px-4 py-3 bg-[#08090E] border border-slate-800 rounded-xl text-white text-sm focus:border-[#EE1C25] outline-none"
                     >
-                      <option value="photoshoot">Product Photoshoot & 3D Render</option>
-                      <option value="commercial">Commercial Video Production</option>
-                      <option value="youtube">YouTube Growth Editing</option>
-                      <option value="motion3d">3D Motion Graphics & VFX</option>
+                      <option value="video">Video Production</option>
+                      <option value="photoshoot">Product Photography</option>
+                      <option value="podcast">Podcast Production</option>
+                      <option value="youtube">YouTube Content</option>
+                      <option value="corporate">Brand & Corporate Films</option>
+                      <option value="creative">Creative Direction</option>
                     </select>
                   </div>
 

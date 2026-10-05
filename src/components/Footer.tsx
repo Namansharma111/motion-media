@@ -39,7 +39,7 @@ export const Footer: React.FC = () => {
           <div className="md:col-span-5 space-y-4">
             <BrandLogo size={52} />
             <p className="text-slate-400 text-sm max-w-sm font-light leading-relaxed">
-              MOTION MEDIA is a premier visual agency specializing in high-converting Product Photoshoots, Commercial Video Ads, YouTube Growth Production, and 3D Kinetic Motion Graphics.
+              MOTION MEDIA is a premier visual agency specializing in Video Production, Product Photography, Podcast Production, YouTube Content, Brand & Corporate Films, and Creative Direction.
             </p>
 
             <div className="flex items-center gap-2 text-xs font-mono text-slate-300 pt-2">
@@ -55,7 +55,7 @@ export const Footer: React.FC = () => {
             </h4>
             <ul className="space-y-2 text-sm">
               <li><a href="#work" className="hover:text-[#EE1C25] transition-colors">Selected Work Showcase</a></li>
-              <li><a href="#services" className="hover:text-[#EE1C25] transition-colors">Four Core Expertise</a></li>
+              <li><a href="#services" className="hover:text-[#EE1C25] transition-colors">Our Services</a></li>
               <li><a href="#compare" className="hover:text-[#EE1C25] transition-colors">Raw vs Motion Comparison</a></li>
               <li><a href="#calculator" className="hover:text-[#EE1C25] transition-colors">Instant Project Calculator</a></li>
               <li><a href="#faq" className="hover:text-[#EE1C25] transition-colors">Frequently Asked Questions</a></li>
