@@ -91,11 +91,12 @@ export const ScrollExpandVideo: React.FC<ScrollExpandVideoProps> = ({
 
   return (
     <div
+      id="about"
       ref={pinSectionRef}
       className="relative w-full h-screen bg-[#F7F8FC] bg-noise flex items-center justify-center overflow-hidden z-20 select-none"
     >
       {/* Ambient Studio Glow behind video */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[750px] h-[380px] bg-gradient-to-r from-[#EE1C25]/10 via-[#2B388F]/12 to-[#CCFF00]/15 blur-[130px] pointer-events-none rounded-full" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[750px] h-[380px] bg-gradient-to-r from-[#EE1C25]/10 via-[#465199]/15 to-[#465199]/15 blur-[130px] pointer-events-none rounded-full" />
 
       {/* Pure Expanding Cinematic Video Container */}
       <div
@@ -132,10 +133,10 @@ export const ScrollExpandVideo: React.FC<ScrollExpandVideoProps> = ({
 
           <button
             onClick={toggleMute}
-            className="p-3.5 rounded-full bg-black/70 backdrop-blur-xl border border-white/30 text-white hover:bg-[#2B388F] transition-all hover:scale-110 shadow-2xl flex items-center gap-2"
+            className="p-3.5 rounded-full bg-black/70 backdrop-blur-xl border border-white/30 text-white hover:bg-[#465199] transition-all hover:scale-110 shadow-2xl flex items-center gap-2"
             title={isMuted ? "Unmute Sound" : "Mute Sound"}
           >
-            {isMuted ? <VolumeX className="w-5 h-5 text-red-400" /> : <Volume2 className="w-5 h-5 text-[#CCFF00]" />}
+            {isMuted ? <VolumeX className="w-5 h-5 text-[#EE1C25]" /> : <Volume2 className="w-5 h-5 text-white" />}
             <span className="text-xs font-mono font-bold hidden sm:inline text-slate-200 pr-1">
               {isMuted ? "MUTED" : "SOUND ON"}
             </span>

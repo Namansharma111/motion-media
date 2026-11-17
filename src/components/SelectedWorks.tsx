@@ -36,7 +36,7 @@ export const SelectedWorks: React.FC<SelectedWorksProps> = ({ onOpenReel }) => {
       client: "Neo-Fuel Energy",
       metrics: "1.2M Instagram Reel Reach",
       image: "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=800&q=80",
-      accent: "#2B388F",
+      accent: "#465199",
     },
     {
       id: 3,
@@ -46,7 +46,7 @@ export const SelectedWorks: React.FC<SelectedWorksProps> = ({ onOpenReel }) => {
       client: "Marques Tech World",
       metrics: "85% Avg Watch Retention",
       image: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&w=800&q=80",
-      accent: "#CCFF00",
+      accent: "#465199",
     },
     {
       id: 4,
@@ -66,7 +66,7 @@ export const SelectedWorks: React.FC<SelectedWorksProps> = ({ onOpenReel }) => {
       client: "Aero Watchmaker Paris",
       metrics: "+410% Amazon CTR",
       image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=80",
-      accent: "#2B388F",
+      accent: "#465199",
     },
     {
       id: 6,
@@ -76,7 +76,7 @@ export const SelectedWorks: React.FC<SelectedWorksProps> = ({ onOpenReel }) => {
       client: "Quantum Pay",
       metrics: "5.4M Impressions",
       image: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=800&q=80",
-      accent: "#CCFF00",
+      accent: "#EE1C25",
     },
   ];
 
@@ -159,7 +159,7 @@ export const SelectedWorks: React.FC<SelectedWorksProps> = ({ onOpenReel }) => {
                 className={`px-4 py-2 rounded-full text-xs font-semibold transition-all ${
                   filter === btn.id
                     ? "bg-[#EE1C25] text-white shadow-lg shadow-red-900/50 scale-105"
-                    : "bg-[#121626] text-slate-300 hover:text-white border border-slate-800"
+                    : "bg-neutral-900 text-neutral-300 hover:text-white border border-neutral-800"
                 }`}
               >
                 {btn.label}
@@ -181,16 +181,16 @@ export const SelectedWorks: React.FC<SelectedWorksProps> = ({ onOpenReel }) => {
                 transition={{ duration: 0.3 }}
                 data-cursor="PLAY"
                 onClick={onOpenReel}
-                className="group relative rounded-3xl bg-[#0F1322] border border-slate-800 overflow-hidden cursor-pointer hover:border-[#EE1C25] transition-all duration-500 shadow-xl hover:-translate-y-2 hover:shadow-2xl hover:shadow-red-950/30"
+                className="group relative rounded-3xl bg-neutral-950 border border-neutral-800 overflow-hidden cursor-pointer hover:border-[#EE1C25] transition-all duration-500 shadow-xl hover:-translate-y-2 hover:shadow-2xl hover:shadow-red-950/30"
               >
                 {/* Image Container */}
-                <div className="relative aspect-[16/10] overflow-hidden bg-slate-900">
+                <div className="relative aspect-[16/10] overflow-hidden bg-neutral-900">
                   <img
                     src={proj.image}
                     alt={proj.title}
                     className="w-full h-full object-cover group-hover:scale-115 transition-transform duration-700 filter brightness-90 contrast-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0F1322] via-transparent to-transparent opacity-80" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80" />
 
                   {/* Play Button overlay */}
                   <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 bg-black/40 backdrop-blur-xs">
@@ -200,16 +200,16 @@ export const SelectedWorks: React.FC<SelectedWorksProps> = ({ onOpenReel }) => {
                   </div>
 
                   {/* Category Pill */}
-                  <div className="absolute top-4 left-4 bg-[#08090E]/80 backdrop-blur-md px-3 py-1 rounded-full border border-slate-700 text-[11px] font-semibold text-slate-200">
+                  <div className="absolute top-4 left-4 bg-black/80 backdrop-blur-md px-3 py-1 rounded-full border border-neutral-700 text-[11px] font-semibold text-neutral-200">
                     {proj.categoryName}
                   </div>
                 </div>
 
                 {/* Content Details */}
                 <div className="p-6">
-                  <div className="flex items-center justify-between text-xs text-slate-400 mb-2 font-mono">
+                  <div className="flex items-center justify-between text-xs text-neutral-400 mb-2 font-mono">
                     <span>CLIENT: {proj.client}</span>
-                    <span className="text-[#CCFF00] font-bold">{proj.metrics}</span>
+                    <span className="text-[#EE1C25] font-bold">{proj.metrics}</span>
                   </div>
 
                   <h3 className="font-bebas text-2xl text-white tracking-wide group-hover:text-[#EE1C25] transition-colors line-clamp-1">

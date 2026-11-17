@@ -50,39 +50,39 @@ export const ProjectBriefModal: React.FC<ProjectBriefModalProps> = ({
           initial={{ opacity: 0, scale: 0.95, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 20 }}
-          className="relative w-full max-w-2xl bg-[#0F1322] border border-slate-700 rounded-3xl overflow-hidden shadow-2xl p-6 sm:p-8"
+          className="relative w-full max-w-2xl bg-neutral-950 border border-neutral-800 rounded-3xl overflow-hidden shadow-2xl p-6 sm:p-8"
         >
           {/* Close button */}
           <button
             onClick={onClose}
-            className="absolute top-6 right-6 p-2 rounded-full bg-slate-800 text-slate-300 hover:text-white hover:bg-[#EE1C25] transition-colors"
+            className="absolute top-6 right-6 p-2 rounded-full bg-neutral-900 border border-neutral-800 text-neutral-300 hover:text-white hover:bg-[#EE1C25] transition-colors"
           >
             <X className="w-5 h-5" />
           </button>
 
           {submitted ? (
             <div className="py-12 text-center space-y-4">
-              <div className="w-20 h-20 bg-[#CCFF00] rounded-full flex items-center justify-center mx-auto shadow-2xl animate-bounce">
-                <CheckCircle2 className="w-12 h-12 text-black" />
+              <div className="w-20 h-20 bg-[#EE1C25] rounded-full flex items-center justify-center mx-auto shadow-2xl animate-bounce">
+                <CheckCircle2 className="w-12 h-12 text-white" />
               </div>
               <h3 className="font-bebas text-4xl text-white tracking-wide">
                 PROJECT BRIEF SUBMITTED SUCCESSFULLY!
               </h3>
-              <p className="text-slate-300 text-sm max-w-md mx-auto">
+              <p className="text-neutral-300 text-sm max-w-md mx-auto">
                 Our Creative Director will review your specifications and email you a full storyboard & timeline proposal within 2 hours.
               </p>
             </div>
           ) : (
             <div>
               <div className="mb-6">
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#161B2E] border border-slate-700 text-[#CCFF00] text-xs font-semibold uppercase tracking-wider mb-2">
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-neutral-900 border border-neutral-800 text-[#EE1C25] text-xs font-semibold uppercase tracking-wider mb-2">
                   <Sparkles className="w-3.5 h-3.5" />
                   START YOUR MOTION PROJECT
                 </div>
                 <h3 className="font-bebas text-4xl text-white tracking-wide uppercase">
                   TELL US ABOUT YOUR <span className="text-[#EE1C25]">VISION</span>
                 </h3>
-                <p className="text-xs text-slate-400">
+                <p className="text-xs text-neutral-400">
                   Fill in your project brief details below for an instant producer response.
                 </p>
               </div>
@@ -97,7 +97,7 @@ export const ProjectBriefModal: React.FC<ProjectBriefModalProps> = ({
                       placeholder="Alex Rivera"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-4 py-3 bg-[#08090E] border border-slate-800 rounded-xl text-white text-sm focus:border-[#EE1C25] outline-none"
+                      className="w-full px-4 py-3 bg-black border border-neutral-800 rounded-xl text-white text-sm focus:border-[#EE1C25] outline-none"
                     />
                   </div>
 
@@ -109,7 +109,7 @@ export const ProjectBriefModal: React.FC<ProjectBriefModalProps> = ({
                       placeholder="alex@brand.com"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full px-4 py-3 bg-[#08090E] border border-slate-800 rounded-xl text-white text-sm focus:border-[#EE1C25] outline-none"
+                      className="w-full px-4 py-3 bg-black border border-neutral-800 rounded-xl text-white text-sm focus:border-[#EE1C25] outline-none"
                     />
                   </div>
                 </div>
@@ -120,7 +120,7 @@ export const ProjectBriefModal: React.FC<ProjectBriefModalProps> = ({
                     <select
                       value={formData.service}
                       onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                      className="w-full px-4 py-3 bg-[#08090E] border border-slate-800 rounded-xl text-white text-sm focus:border-[#EE1C25] outline-none"
+                      className="w-full px-4 py-3 bg-black border border-neutral-800 rounded-xl text-white text-sm focus:border-[#EE1C25] outline-none"
                     >
                       <option value="video">Video Production</option>
                       <option value="photoshoot">Product Photography</option>
@@ -136,7 +136,7 @@ export const ProjectBriefModal: React.FC<ProjectBriefModalProps> = ({
                     <select
                       value={formData.budget}
                       onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
-                      className="w-full px-4 py-3 bg-[#08090E] border border-slate-800 rounded-xl text-white text-sm focus:border-[#EE1C25] outline-none"
+                      className="w-full px-4 py-3 bg-black border border-neutral-800 rounded-xl text-white text-sm focus:border-[#EE1C25] outline-none"
                     >
                       <option value="$500 - $1k">$500 - $1,000</option>
                       <option value="$1k - $3k">$1,000 - $3,000</option>
@@ -153,20 +153,23 @@ export const ProjectBriefModal: React.FC<ProjectBriefModalProps> = ({
                     placeholder="Describe your product, target audience, style preferences or paste reference video links..."
                     value={formData.notes}
                     onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                    className="w-full px-4 py-3 bg-[#08090E] border border-slate-800 rounded-xl text-white text-sm focus:border-[#EE1C25] outline-none"
+                    className="w-full px-4 py-3 bg-black border border-neutral-800 rounded-xl text-white text-sm focus:border-[#EE1C25] outline-none"
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full py-4 bg-[#EE1C25] hover:bg-[#ff2535] text-white font-bebas text-2xl uppercase tracking-wider rounded-xl transition-all shadow-xl flex items-center justify-center gap-2"
+                  className="relative group overflow-hidden w-full py-4 bg-[#EE1C25] text-white font-bebas text-2xl uppercase tracking-wider rounded-xl transition-all shadow-xl flex items-center justify-center gap-2 active:scale-95"
                 >
-                  <Send className="w-5 h-5" />
-                  <span>SUBMIT BRIEF & RECEIVE PROPOSAL</span>
+                  <span className="absolute inset-0 bg-[#465199] -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out" />
+                  <span className="relative z-10 flex items-center gap-2">
+                    <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
+                    <span>SUBMIT BRIEF & RECEIVE PROPOSAL</span>
+                  </span>
                 </button>
 
                 <div className="text-[11px] text-center text-slate-400 flex items-center justify-center gap-1">
-                  <ShieldCheck className="w-3.5 h-3.5 text-[#CCFF00]" />
+                  <ShieldCheck className="w-3.5 h-3.5 text-[#EE1C25]" />
                   <span>Strict NDA Protected • Fast 2-Hour Response</span>
                 </div>
               </form>

@@ -6,7 +6,7 @@ import { HeroSection } from "@/components/HeroSection";
 import { ScrollExpandVideo } from "@/components/ScrollExpandVideo";
 import { MarqueeTicker } from "@/components/MarqueeTicker";
 import { ServicesGrid } from "@/components/ServicesGrid";
-import { BeforeAfterVideoSlider } from "@/components/BeforeAfterVideoSlider";
+import GsapHorizontalScroll from "@/components/GsapHorizontalScroll";
 import { CreativeCalculator } from "@/components/CreativeCalculator";
 import { SelectedWorks } from "@/components/SelectedWorks";
 import { FAQSection } from "@/components/FAQSection";
@@ -64,8 +64,14 @@ export default function Home() {
           }}
         />
 
-        {/* Interactive Before vs After Motion Polish Slider */}
-        <BeforeAfterVideoSlider />
+        {/* GSAP Horizontal Scrolling Section */}
+        <GsapHorizontalScroll
+          onOpenReel={() => setReelOpen(true)}
+          onOpenBrief={() => {
+            setBriefDetails("");
+            setBriefOpen(true);
+          }}
+        />
 
         {/* Portfolio Selected Works Grid */}
         <SelectedWorks onOpenReel={() => setReelOpen(true)} />

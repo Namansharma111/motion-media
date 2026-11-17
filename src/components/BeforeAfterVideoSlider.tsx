@@ -103,7 +103,7 @@ export const BeforeAfterVideoSlider: React.FC = () => {
           className="relative w-full max-w-5xl mx-auto aspect-[16/9] rounded-3xl overflow-hidden border-2 border-slate-700 shadow-2xl select-none cursor-ew-resize bg-black"
         >
           {/* AFTER SIDE (Full Width Layer on bottom): Polished Motion Graphics */}
-          <div className="absolute inset-0 w-full h-full bg-[#0E1220]">
+          <div className="absolute inset-0 w-full h-full bg-black">
             <img
               src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1600&q=80"
               alt="Final Motion Edit"
@@ -111,10 +111,10 @@ export const BeforeAfterVideoSlider: React.FC = () => {
             />
             
             {/* Glowing Motion Graphics Overlays on After Side */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-[#EE1C25]/30 via-transparent to-[#CCFF00]/20 mix-blend-screen" />
+            <div className="absolute inset-0 bg-gradient-to-tr from-[#EE1C25]/30 via-transparent to-[#465199]/30 mix-blend-screen" />
             
-            <div className="absolute bottom-12 right-12 bg-[#08090E]/90 border border-[#CCFF00] text-white p-4 rounded-2xl shadow-2xl backdrop-blur-md">
-              <div className="text-[#CCFF00] text-xs font-mono font-bold uppercase">✦ CINEMATIC GRADED</div>
+            <div className="absolute bottom-12 right-12 bg-[#08090E]/90 border border-[#465199] text-white p-4 rounded-2xl shadow-2xl backdrop-blur-md">
+              <div className="text-[#EE1C25] text-xs font-mono font-bold uppercase">✦ CINEMATIC GRADED</div>
               <div className="font-bebas text-xl">PRO SOUND & KINETIC MOTION</div>
             </div>
 
@@ -143,12 +143,12 @@ export const BeforeAfterVideoSlider: React.FC = () => {
 
           {/* Vertical Slider Separator Line */}
           <div
-            className="absolute top-0 bottom-0 w-1 bg-gradient-to-b from-[#EE1C25] via-white to-[#CCFF00] shadow-[0_0_15px_rgba(238,28,37,1)] z-30 pointer-events-none"
+            className="absolute top-0 bottom-0 w-1 bg-gradient-to-b from-[#EE1C25] via-white to-[#465199] shadow-[0_0_15px_rgba(238,28,37,1)] z-30 pointer-events-none"
             style={{ left: `${sliderPosition}%` }}
           >
             {/* Handle Button in middle */}
             <div className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-[#08090E] border-2 border-white shadow-2xl flex items-center justify-center text-white">
-              <SlidersHorizontal className="w-5 h-5 text-[#CCFF00]" />
+              <SlidersHorizontal className="w-5 h-5 text-[#EE1C25]" />
             </div>
           </div>
         </div>
@@ -161,7 +161,7 @@ export const BeforeAfterVideoSlider: React.FC = () => {
           </span>
           <span>•</span>
           <span className="flex items-center gap-1.5">
-            <Sparkles className="w-4 h-4 text-[#2B388F]" />
+            <Sparkles className="w-4 h-4 text-[#465199]" />
             Drag left & right to inspect details
           </span>
         </div>

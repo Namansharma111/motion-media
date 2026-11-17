@@ -31,7 +31,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${bebasNeue.variable} ${outfit.variable} ${syne.variable} h-full antialiased selection:bg-[#E5192C] selection:text-white`}
+      className={`${bebasNeue.variable} ${outfit.variable} ${syne.variable} h-full antialiased selection:bg-[#EE1C25] selection:text-white`}
     >
       <body className="min-h-full bg-[#FAFAFC] text-slate-900 font-sans overflow-x-hidden">
         {children}

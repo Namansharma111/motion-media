@@ -43,7 +43,7 @@ export const Footer: React.FC = () => {
             </p>
 
             <div className="flex items-center gap-2 text-xs font-mono text-slate-300 pt-2">
-              <Clock className="w-4 h-4 text-[#CCFF00]" />
+              <Clock className="w-4 h-4 text-[#EE1C25]" />
               <span>STUDIO LOCAL TIME: {timeStr || "11:30:00 PM"} IST (UTC+5:30)</span>
             </div>
           </div>
@@ -56,7 +56,6 @@ export const Footer: React.FC = () => {
             <ul className="space-y-2 text-sm">
               <li><a href="#work" className="hover:text-[#EE1C25] transition-colors">Selected Work Showcase</a></li>
               <li><a href="#services" className="hover:text-[#EE1C25] transition-colors">Our Services</a></li>
-              <li><a href="#compare" className="hover:text-[#EE1C25] transition-colors">Raw vs Motion Comparison</a></li>
               <li><a href="#calculator" className="hover:text-[#EE1C25] transition-colors">Instant Project Calculator</a></li>
               <li><a href="#faq" className="hover:text-[#EE1C25] transition-colors">Frequently Asked Questions</a></li>
             </ul>
@@ -73,7 +72,7 @@ export const Footer: React.FC = () => {
                 <a href="mailto:hello@motionmedia.studio" className="hover:text-white transition-colors">hello@motionmedia.studio</a>
               </div>
               <div className="flex items-center gap-2">
-                <MapPin className="w-4 h-4 text-[#2B388F]" />
+                <MapPin className="w-4 h-4 text-[#465199]" />
                 <span>Motion Media Studios • Global Remote & On-Site</span>
               </div>
             </div>
@@ -81,17 +80,17 @@ export const Footer: React.FC = () => {
             {/* Social Icons */}
             <div className="flex items-center gap-3 mt-6">
               {[
-                { icon: Video, href: "#", color: "hover:text-red-500" },
-                { icon: Camera, href: "#", color: "hover:text-pink-500" },
-                { icon: Share2, href: "#", color: "hover:text-cyan-400" },
-                { icon: Globe, href: "#", color: "hover:text-blue-500" },
+                { icon: Video, href: "#", color: "hover:text-[#EE1C25] hover:border-[#EE1C25]" },
+                { icon: Camera, href: "#", color: "hover:text-[#465199] hover:border-[#465199]" },
+                { icon: Share2, href: "#", color: "hover:text-[#EE1C25] hover:border-[#EE1C25]" },
+                { icon: Globe, href: "#", color: "hover:text-[#465199] hover:border-[#465199]" },
               ].map((s, idx) => {
                 const Icon = s.icon;
                 return (
                   <a
                     key={idx}
                     href={s.href}
-                    className={`w-10 h-10 rounded-xl bg-[#0F1322] border border-slate-800 flex items-center justify-center text-slate-400 ${s.color} hover:border-slate-600 transition-all`}
+                    className={`w-10 h-10 rounded-xl bg-neutral-900 border border-neutral-800 flex items-center justify-center text-neutral-400 ${s.color} hover:border-neutral-600 transition-all`}
                   >
                     <Icon className="w-5 h-5" />
                   </a>
@@ -103,14 +102,14 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-neutral-400">
           <div>
             © {new Date().getFullYear()} MOTION MEDIA STUDIO. ALL RIGHTS RESERVED. CRAFTED WITH KINETIC MOTION VIBE.
           </div>
 
           <button
             onClick={scrollToTop}
-            className="flex items-center gap-2 px-4 py-2 bg-[#0F1322] border border-slate-800 rounded-full text-slate-300 hover:text-white hover:border-[#EE1C25] transition-all"
+            className="flex items-center gap-2 px-4 py-2 bg-neutral-900 border border-neutral-800 rounded-full text-neutral-300 hover:text-white hover:border-[#EE1C25] transition-all"
           >
             <span>BACK TO TOP</span>
             <ArrowUp className="w-4 h-4 text-[#EE1C25]" />

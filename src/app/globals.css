@@ -48,19 +48,19 @@ html.lenis, html.lenis body {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #08090e;
+  background: #000000;
 }
 ::-webkit-scrollbar-thumb {
-  background: #2b388f;
+  background: #465199;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #e5192c;
+  background: #EE1C25;
 }
 
 /* Text Mask Video Effect */
 .text-video-mask {
-  background: linear-gradient(135deg, rgba(229, 25, 44, 0.9), rgba(43, 56, 143, 0.9)),
+  background: linear-gradient(135deg, rgba(238, 28, 37, 0.9), rgba(70, 81, 153, 0.9)),
               url('https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1400&q=80');
   background-size: cover;
   background-position: center;
@@ -70,13 +70,13 @@ html.lenis, html.lenis body {
 
 /* Metallic Motion Text Gradient */
 .text-glow-gradient {
-  background: linear-gradient(135deg, #ffffff 0%, #dbeafe 50%, #93c5fd 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #f1f3f9 50%, #e2e8f0 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .text-brand-gradient {
-  background: linear-gradient(135deg, #ff2038 0%, #ff6b7b 50%, #ccff00 100%);
+  background: linear-gradient(135deg, #EE1C25 0%, #465199 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -104,10 +104,10 @@ html.lenis, html.lenis body {
 /* Pulse Glow */
 @keyframes pulseGlow {
   0%, 100% {
-    box-shadow: 0 0 20px rgba(229, 25, 44, 0.4);
+    box-shadow: 0 0 20px rgba(238, 28, 37, 0.4);
   }
   50% {
-    box-shadow: 0 0 40px rgba(229, 25, 44, 0.8), 0 0 20px rgba(204, 255, 0, 0.5);
+    box-shadow: 0 0 40px rgba(238, 28, 37, 0.8), 0 0 20px rgba(43, 56, 143, 0.5);
   }
 }
 

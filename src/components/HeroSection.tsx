@@ -1,42 +1,44 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import { Sparkles, Film, Camera, Video, Flame, ChevronRight, Play, Zap } from "lucide-react";
+import { Zap, Play, ShieldCheck } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 interface HeroSectionProps {
-  onOpenReel: () => void;
-  onOpenBrief: () => void;
+  onOpenReel?: () => void;
+  onOpenBrief?: () => void;
 }
 
-export const HeroSection: React.FC<HeroSectionProps> = ({
-  onOpenReel,
-  onOpenBrief,
-}) => {
-  const [activeCategory, setActiveCategory] = useState("all");
-  
+export const HeroSection: React.FC<HeroSectionProps> = () => {
   const heroRef = useRef<HTMLDivElement>(null);
   const badgeRef = useRef<HTMLDivElement>(null);
   const title1Ref = useRef<HTMLHeadingElement>(null);
   const title2Ref = useRef<HTMLHeadingElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
-  const pillsRef = useRef<HTMLDivElement>(null);
-  const buttonsRef = useRef<HTMLDivElement>(null);
-  
-  // Parallax floating HUD badges refs
-  const floatCard1Ref = useRef<HTMLDivElement>(null);
-  const floatCard2Ref = useRef<HTMLDivElement>(null);
+  const metaRef = useRef<HTMLDivElement>(null);
+
+  // Parallax floating ambient orbs refs
   const orb1Ref = useRef<HTMLDivElement>(null);
   const orb2Ref = useRef<HTMLDivElement>(null);
 
-  const categories = [
-    { id: "all", label: "All Works", icon: Flame },
-    { id: "product", label: "Product Photography", icon: Camera },
-    { id: "video", label: "Commercial Video", icon: Film },
-    { id: "youtube", label: "YouTube Content", icon: Video },
-    { id: "creative", label: "Creative Direction", icon: Sparkles },
+  // Auto-rotating dynamic single words (consistent 5-6 letter width for smooth swaps)
+  const rotatingWords = [
+    "MOTION",
+    "VIDEOS",
+    "REELS",
+    "IMPACT",
+    "GROWTH",
   ];
+  const [wordIndex, setWordIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setWordIndex((prev) => (prev + 1) % rotatingWords.length);
+    }, 2600);
+    return () => clearInterval(timer);
+  }, [rotatingWords.length]);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -70,57 +72,28 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           { opacity: 0, y: 25 },
           { opacity: 1, y: 0, duration: 0.7 },
           "-=0.5"
-        )
-        .fromTo(
-          pillsRef.current ? pillsRef.current.children : [],
-          { opacity: 0, y: 20, scale: 0.9 },
-          { opacity: 1, y: 0, scale: 1, stagger: 0.06, duration: 0.5 },
-          "-=0.4"
-        )
-        .fromTo(
-          buttonsRef.current ? buttonsRef.current.children : [],
-          { opacity: 0, y: 25 },
-          { opacity: 1, y: 0, stagger: 0.1, duration: 0.6 },
-          "-=0.3"
         );
 
-      // Subtle Parallax Scroll on Orbs and Side Badges
-      if (heroRef.current) {
-        if (orb1Ref.current) {
-          gsap.to(orb1Ref.current, {
-            y: 160,
-            scrollTrigger: {
-              trigger: heroRef.current,
-              start: "top top",
-              end: "bottom top",
-              scrub: 1,
-            },
-          });
-        }
+      if (metaRef.current) {
+        tl.fromTo(
+          metaRef.current,
+          { opacity: 0, y: 20 },
+          { opacity: 1, y: 0, duration: 0.6 },
+          "-=0.3"
+        );
+      }
 
-        if (floatCard1Ref.current) {
-          gsap.to(floatCard1Ref.current, {
-            y: 100,
-            scrollTrigger: {
-              trigger: heroRef.current,
-              start: "top top",
-              end: "bottom top",
-              scrub: 1,
-            },
-          });
-        }
-
-        if (floatCard2Ref.current) {
-          gsap.to(floatCard2Ref.current, {
-            y: 120,
-            scrollTrigger: {
-              trigger: heroRef.current,
-              start: "top top",
-              end: "bottom top",
-              scrub: 1,
-            },
-          });
-        }
+      // Subtle Parallax Scroll on Orbs
+      if (heroRef.current && orb1Ref.current) {
+        gsap.to(orb1Ref.current, {
+          y: 160,
+          scrollTrigger: {
+            trigger: heroRef.current,
+            start: "top top",
+            end: "bottom top",
+            scrub: 1,
+          },
+        });
       }
     }, heroRef);
 
@@ -129,186 +102,136 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
   return (
     <section
+      id="home"
       ref={heroRef}
-      className="relative min-h-[92vh] pt-28 pb-16 overflow-hidden flex flex-col justify-center bg-[#F7F8FC] bg-noise select-none"
+      className="relative min-h-screen flex flex-col justify-center items-center pt-24 pb-20 overflow-hidden bg-[#F7F8FC] bg-noise select-none"
     >
-      {/* Dynamic Studio Ambient Glow */}
+      {/* Clean Studio Ambient Glow - Soft & Light, No Over-Shadow */}
       <div
         ref={orb1Ref}
-        className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[650px] h-[320px] bg-gradient-to-r from-[#EE1C25]/12 via-[#2B388F]/15 to-[#CCFF00]/15 blur-[120px] pointer-events-none rounded-full"
+        className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[650px] h-[320px] bg-gradient-to-r from-[#EE1C25]/7 via-[#465199]/8 to-[#465199]/8 blur-[90px] pointer-events-none rounded-full"
       />
       <div
         ref={orb2Ref}
-        className="absolute top-10 right-10 w-[350px] h-[350px] bg-[#2B388F]/10 blur-[100px] pointer-events-none rounded-full"
+        className="absolute top-10 right-10 w-[350px] h-[350px] bg-[#465199]/5 blur-[80px] pointer-events-none rounded-full"
       />
 
-      {/* Sleek Floating HUD Side Card Left */}
-      <div
-        ref={floatCard1Ref}
-        className="hidden xl:flex absolute top-36 left-12 z-20 bg-slate-950/90 text-white p-3.5 rounded-xl border border-slate-800 shadow-xl backdrop-blur-md flex-col gap-0.5 hover:border-[#CCFF00] transition-colors cursor-pointer"
-      >
-        <div className="flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-[#CCFF00] animate-ping" />
-          <span className="text-[10px] font-mono font-bold text-[#CCFF00] uppercase tracking-wider">
-            CINEMATIC BRAND FILM
-          </span>
-        </div>
-        <div className="font-bebas text-xl text-white tracking-wide">60 FPS KINETIC RAYS</div>
-        <div className="text-[11px] text-slate-400 font-sans">Photorealistic Studio Lighting</div>
-      </div>
-
-      {/* Sleek Floating HUD Side Card Right */}
-      <div
-        ref={floatCard2Ref}
-        onClick={onOpenReel}
-        className="hidden xl:flex absolute top-44 right-12 z-20 bg-white text-slate-900 p-3.5 rounded-xl border border-slate-200 shadow-xl flex-col gap-0.5 hover:border-[#EE1C25] transition-all cursor-pointer group hover:scale-105"
-      >
-        <div className="flex items-center justify-between gap-4">
-          <div className="w-7 h-7 rounded-full bg-[#EE1C25] text-white flex items-center justify-center group-hover:scale-110 transition-transform">
-            <Play className="w-3.5 h-3.5 fill-current translate-x-0.5" />
-          </div>
-          <span className="px-2 py-0.5 rounded bg-red-100 text-[#EE1C25] font-mono text-[9px] font-bold">
-            2026 REEL
-          </span>
-        </div>
-        <div className="font-bebas text-xl tracking-wide text-slate-950 mt-1">WATCH SHOWREEL</div>
-        <div className="text-[11px] text-slate-500 font-sans">120M+ Views Crafted</div>
-      </div>
-
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10 text-center">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10 text-center my-auto">
 
         {/* Professional Studio Eyebrow Tag */}
         <div
           ref={badgeRef}
-          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-slate-200 shadow-xs mb-5 backdrop-blur-md"
+          className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white border border-slate-200/90 shadow-xs mb-6 backdrop-blur-md"
         >
-          <Zap className="w-3.5 h-3.5 text-[#EE1C25]" />
-          <span className="text-[11px] font-mono font-bold uppercase tracking-widest text-slate-700">
+          <span className="flex h-2 w-2 relative">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#EE1C25] opacity-75" />
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-[#EE1C25]" />
+          </span>
+          <span className="text-[11px] font-mono font-bold uppercase tracking-widest text-slate-800">
             NEXT-GEN MOTION & VIDEO PRODUCTION STUDIO
           </span>
         </div>
 
-        {/* Clean, Well-Proportioned Professional Headline */}
+        {/* Clean, Sharp Professional Headline with Auto-Rotating Single Words */}
         <div className="max-w-4xl mx-auto">
           <h1
             ref={title1Ref}
-            className="font-bebas text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight text-slate-950 uppercase leading-[0.92] drop-shadow-xs"
+            className="font-bebas text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight text-slate-950 uppercase leading-[0.92]"
           >
             IT'S NO WONDER BRANDS
           </h1>
+
           <h1
             ref={title2Ref}
-            className="font-bebas text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight text-[#EE1C25] uppercase leading-[0.92] drop-shadow-xs relative inline-block mt-1"
+            className="font-bebas text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight uppercase leading-[0.95] mt-1 sm:mt-2 flex items-center justify-center flex-wrap gap-x-3.5 gap-y-1"
           >
-            WANT MOTION & VIDEO
-            
-            {/* Ultra Smooth GPU-Accelerated SVG Underline Motion */}
-            <span className="absolute -bottom-3 left-0 right-0 h-5 pointer-events-none overflow-visible">
-              <svg
-                viewBox="0 0 520 28"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-full h-full preserve-3d filter drop-shadow-[0_4px_10px_rgba(238,28,37,0.35)]"
-              >
-                {/* Main Vibrant Gradient Line (Self-Drawing Animation) */}
-                <path
-                  className="animate-draw-line"
-                  d="M6 14 C100 2, 180 24, 260 12 C340 0, 420 22, 514 8"
-                  stroke="url(#motion-underline-grad-main)"
-                  strokeWidth="6"
-                  strokeLinecap="round"
-                />
-                {/* Secondary Kinetic Dashed Flow Line */}
-                <path
-                  className="animate-dashed-flow"
-                  d="M25 19 C120 9, 200 25, 290 14 C380 3, 450 18, 505 12"
-                  stroke="#CCFF00"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  opacity="0.9"
-                  strokeDasharray="8 5"
-                />
-                
-                <defs>
-                  <linearGradient id="motion-underline-grad-main" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor="#EE1C25" />
-                    <stop offset="35%" stopColor="#2B388F" />
-                    <stop offset="75%" stopColor="#CCFF00" />
-                    <stop offset="100%" stopColor="#EE1C25" />
-                  </linearGradient>
-                </defs>
-              </svg>
+            <span className="text-slate-950">WANT</span>
 
-              {/* Smooth Gliding Neon Sparkle Dot */}
-              <span className="absolute -top-1.5 left-2 w-3.5 h-3.5 rounded-full bg-[#CCFF00] shadow-[0_0_14px_#CCFF00] animate-spark-glide" />
-
-              {/* Endpoint Accents */}
-              <span className="absolute -top-2 -left-2 text-[#EE1C25] text-xs animate-pulse font-mono">
-                ✦
-              </span>
-              <span className="absolute -top-2 -right-2 text-[#CCFF00] text-xs animate-pulse font-mono">
-                ✦
-              </span>
+            <span className="relative inline-flex items-center justify-center text-[#EE1C25] min-h-[1.12em]">
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={rotatingWords[wordIndex]}
+                  initial={{ y: 28, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  exit={{ y: -28, opacity: 0 }}
+                  transition={{ duration: 0.38, ease: [0.16, 1, 0.3, 1] }}
+                  className="inline-block"
+                >
+                  {rotatingWords[wordIndex]}
+                </motion.span>
+              </AnimatePresence>
             </span>
           </h1>
 
           <p
             ref={subtitleRef}
-            className="mt-6 text-base sm:text-lg md:text-xl text-slate-600 max-w-2xl mx-auto font-sans font-normal leading-relaxed"
+            className="mt-5 text-base sm:text-lg md:text-xl text-slate-600 max-w-xl mx-auto font-sans font-normal leading-relaxed"
           >
-            We transform products, YouTube channels, and brand campaigns into{" "}
-            <strong className="text-slate-900 font-semibold">hyper-engaging motion art</strong>. 
-            Product Photoshoots, Commercial Videos, Kinetic Motion Graphics & High-Converting Edits.
+            We transform ambitious brands into{" "}
+            <strong className="text-slate-900 font-semibold">hyper-engaging motion art</strong> & high-converting commercial video.
           </p>
         </div>
 
-        {/* Filter Pills */}
+        {/* Minimal High-End Studio Credentials & Social Proof with Authentic Icons */}
         <div
-          ref={pillsRef}
-          className="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5 py-6"
+          ref={metaRef}
+          className="mt-8 flex flex-col items-center justify-center gap-6"
         >
-          {categories.map((cat) => {
-            const Icon = cat.icon;
-            const isActive = activeCategory === cat.id;
-            return (
-              <button
-                key={cat.id}
-                onClick={() => setActiveCategory(cat.id)}
-                className={`flex items-center gap-2 px-4 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300 ${
-                  isActive
-                    ? "bg-[#2B388F] text-white shadow-md scale-105"
-                    : "bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 hover:border-slate-300 shadow-xs"
-                }`}
-              >
-                <Icon className={`w-3.5 h-3.5 ${isActive ? "text-[#CCFF00]" : "text-[#EE1C25]"}`} />
-                <span>{cat.label}</span>
-              </button>
-            );
-          })}
+          {/* Proof Badges Strip */}
+          <div className="inline-flex flex-wrap items-center justify-center gap-3 sm:gap-6 px-5 py-2 rounded-full bg-white border border-slate-200/90 shadow-sm text-xs font-sans">
+            {/* Google Verified Rating */}
+            <div className="flex items-center gap-2">
+              <svg className="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none">
+                <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" fill="#FBBC05"/>
+                <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" fill="#EA4335"/>
+              </svg>
+              <div className="flex items-center gap-1.5">
+                <span className="text-[#FBBC04] text-xs tracking-tighter">★★★★★</span>
+                <span className="font-bold text-slate-800">4.9/5</span>
+                <span className="text-slate-500 text-[11px] font-medium hidden sm:inline">Google Rating</span>
+              </div>
+            </div>
+
+            <span className="hidden sm:inline text-slate-200">|</span>
+
+            {/* Views Crafted */}
+            <div className="flex items-center gap-2">
+              <div className="w-4 h-4 rounded-sm bg-[#EE1C25] text-white flex items-center justify-center shrink-0">
+                <Play className="w-2.5 h-2.5 fill-current translate-x-0.2" />
+              </div>
+              <div className="flex items-center gap-1">
+                <span className="font-bold text-slate-800">120M+</span>
+                <span className="text-slate-500 text-[11px] font-medium">Views Delivered</span>
+              </div>
+            </div>
+
+            <span className="hidden sm:inline text-slate-200">|</span>
+
+            {/* Fast Turnaround */}
+            <div className="flex items-center gap-2">
+              <div className="w-4 h-4 rounded-full bg-[#465199]/10 text-[#465199] flex items-center justify-center shrink-0">
+                <ShieldCheck className="w-3.5 h-3.5 text-[#465199]" />
+              </div>
+              <div className="flex items-center gap-1">
+                <span className="font-bold text-slate-800">48-Hr</span>
+                <span className="text-slate-500 text-[11px] font-medium">Initial Preview</span>
+              </div>
+            </div>
+          </div>
         </div>
 
-        {/* Clean Action CTA Buttons */}
-        <div
-          ref={buttonsRef}
-          className="mt-2 flex flex-col sm:flex-row items-center justify-center gap-3.5"
-        >
-          <button
-            onClick={onOpenBrief}
-            className="w-full sm:w-auto px-7 py-3.5 bg-[#EE1C25] hover:bg-[#ff2535] text-white font-bebas text-xl tracking-wider uppercase rounded-xl shadow-lg shadow-red-900/20 transition-all hover:scale-105 flex items-center justify-center gap-2.5"
-          >
-            <span>BOOK A MOTION PROJECT</span>
-            <ChevronRight className="w-5 h-5" />
-          </button>
+      </div>
 
-          <a
-            href="#calculator"
-            className="w-full sm:w-auto px-7 py-3.5 bg-white hover:bg-slate-50 border border-slate-300 text-slate-900 font-bebas text-xl tracking-wider uppercase rounded-xl shadow-sm transition-all hover:scale-105 flex items-center justify-center gap-2.5"
-          >
-            <span>CALCULATE INSTANT COST</span>
-            <Sparkles className="w-4 h-4 text-[#EE1C25]" />
-          </a>
+      {/* Minimalist Scroll Cue - Centered at the bottom */}
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center justify-center gap-1.5 opacity-60 hover:opacity-100 transition-opacity z-10 pointer-events-none">
+        <span className="text-[10px] font-mono tracking-[0.25em] text-slate-400 uppercase">
+          SCROLL TO EXPLORE
+        </span>
+        <div className="w-3.5 h-6 rounded-full border border-slate-300 flex items-start justify-center p-0.5">
+          <div className="w-1 h-1.5 rounded-full bg-[#EE1C25] animate-bounce" />
         </div>
-
       </div>
     </section>
   );

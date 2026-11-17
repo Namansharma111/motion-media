@@ -28,12 +28,12 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
       {showText && (
         <div className="flex flex-col">
           <span className={`font-bebas text-2xl tracking-wider leading-none group-hover:text-[#EE1C25] transition-colors ${
-            darkText ? "text-slate-900" : "text-white"
+            darkText ? "text-neutral-950" : "text-white"
           }`}>
             MOTION <span className="text-[#EE1C25]">MEDIA</span>
           </span>
           <span className={`text-[10px] tracking-[0.25em] font-semibold uppercase -mt-1 ${
-            darkText ? "text-slate-500" : "text-slate-400"
+            darkText ? "text-neutral-500" : "text-neutral-400"
           }`}>
             VIDEO & CREATIVE STUDIO
           </span>
