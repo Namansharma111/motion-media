@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { Navbar } from "@/components/Navbar";
+import { CinematicHeroSection } from "@/components/CinematicHeroSection";
 import { HeroSection } from "@/components/HeroSection";
 import { ScrollExpandVideo } from "@/components/ScrollExpandVideo";
 import { MarqueeTicker } from "@/components/MarqueeTicker";
@@ -41,8 +42,8 @@ export default function Home() {
           onToggleMute={() => setIsMuted(!isMuted)}
         />
 
-        {/* Hero Section */}
-        <HeroSection
+        {/* Cinematic Hero Section (New) */}
+        <CinematicHeroSection
           onOpenReel={() => setReelOpen(true)}
           onOpenBrief={() => {
             setBriefDetails("");

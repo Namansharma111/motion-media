@@ -76,7 +76,7 @@ export const Navbar: React.FC<NavbarProps> = ({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         {/* Brand Logo */}
         <a href="#">
-          <BrandLogo darkText={true} />
+          <BrandLogo darkText={scrolled} />
         </a>
 
         {/* Desktop Navigation Links */}
