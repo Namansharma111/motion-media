@@ -123,9 +123,10 @@ const GsapHorizontalScroll = ({ onOpenReel, onOpenBrief }) => {
 
         const matchMediaContext = gsap.matchMedia();
 
-        matchMediaContext.add("(min-width: 768px)", () => {
+        matchMediaContext.add("(min-width: 0px)", () => {
             const getScrollAmount = () => {
-                return -(track.scrollWidth - window.innerWidth + 80);
+                const extraOffset = window.innerWidth < 768 ? 32 : 80;
+                return -(track.scrollWidth - window.innerWidth + extraOffset);
             };
 
             const horizontalTween = gsap.to(track, {
@@ -177,7 +178,7 @@ const GsapHorizontalScroll = ({ onOpenReel, onOpenBrief }) => {
         <section
             id="featured-showcase"
             ref={sectionRef}
-            className="relative w-full overflow-hidden bg-[#08090E] select-none py-14 md:py-0 md:h-[100svh] flex flex-col justify-center"
+            className="relative w-full overflow-hidden bg-[#08090E] select-none h-[100svh] flex flex-col justify-center"
         >
             {/* Background Soft Studio Ambient Glows */}
             <div className="absolute top-1/4 left-1/4 w-[450px] h-[450px] bg-[#EE1C25]/8 blur-[140px] rounded-full pointer-events-none" />
@@ -186,13 +187,13 @@ const GsapHorizontalScroll = ({ onOpenReel, onOpenBrief }) => {
             {/* Top subtle border */}
             <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none" />
 
-            {/* Main Track: horizontal on md+, centered vertically with ample clearance */}
+            {/* Main Track: horizontal on mobile and desktop */}
             <div
                 ref={trackRef}
-                className="flex flex-col md:flex-row md:items-center h-full w-full md:w-max px-4 sm:px-8 md:px-12 pt-20 md:pt-16 pb-8 gap-5 sm:gap-6 md:gap-7"
+                className="flex flex-row items-center h-full w-max px-4 sm:px-8 md:px-12 pt-16 md:pt-16 pb-6 md:pb-8 gap-4 sm:gap-6 md:gap-7"
             >
                 {/* Intro Anchor Block - Compact & Focused */}
-                <div className="relative z-10 shrink-0 w-full md:w-[320px] lg:w-[350px] my-auto pr-0 md:pr-4">
+                <div className="relative z-10 shrink-0 w-[270px] sm:w-[320px] lg:w-[350px] my-auto pr-2 md:pr-4">
                     {/* Eyebrow Pill */}
                     <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/60 border border-white/15 backdrop-blur-md mb-3.5 shadow-lg">
                         <span className="w-2 h-2 rounded-full bg-[#EE1C25] animate-ping" />
@@ -243,7 +244,7 @@ const GsapHorizontalScroll = ({ onOpenReel, onOpenBrief }) => {
                     return (
                         <div
                             key={project.id}
-                            className={`motion-project-card group relative rounded-2xl overflow-hidden border border-neutral-800 ${project.hoverBorder} transition-all duration-500 shadow-2xl w-full sm:w-[320px] md:w-[350px] lg:w-[370px] h-[430px] sm:h-[450px] md:h-[460px] max-h-[470px] shrink-0 flex flex-col justify-end p-5 select-none`}
+                            className={`motion-project-card group relative rounded-2xl overflow-hidden border border-neutral-800 ${project.hoverBorder} transition-all duration-500 shadow-2xl w-[270px] sm:w-[320px] md:w-[350px] lg:w-[370px] h-[390px] sm:h-[430px] md:h-[460px] max-h-[80vh] shrink-0 flex flex-col justify-end p-4 sm:p-5 select-none`}
                         >
                             {/* Background Image - High-Definition Cinema Still (Full Vibrant Clarity) */}
                             <img
@@ -316,7 +317,7 @@ const GsapHorizontalScroll = ({ onOpenReel, onOpenBrief }) => {
                 })}
 
                 {/* Closing Card: Studio Action & Next Project Brief */}
-                <div className="relative z-10 shrink-0 w-full sm:w-[320px] md:w-[350px] lg:w-[370px] h-[430px] sm:h-[450px] md:h-[460px] max-h-[470px] rounded-2xl overflow-hidden border border-[#465199]/40 bg-gradient-to-br from-[#0c0e18] via-[#08090e] to-black p-5 flex flex-col justify-between shadow-2xl">
+                <div className="relative z-10 shrink-0 w-[280px] sm:w-[320px] md:w-[350px] lg:w-[370px] h-[390px] sm:h-[430px] md:h-[460px] max-h-[80vh] rounded-2xl overflow-hidden border border-[#465199]/40 bg-gradient-to-br from-[#0c0e18] via-[#08090e] to-black p-4 sm:p-5 flex flex-col justify-between shadow-2xl">
                     <div>
                         {/* Studio Badge */}
                         <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#465199]/20 border border-[#465199]/40 text-[#465199] text-[10px] font-mono font-bold uppercase tracking-wider mb-2.5">
@@ -385,9 +386,9 @@ const GsapHorizontalScroll = ({ onOpenReel, onOpenBrief }) => {
             {/* Bottom border line */}
             <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none" />
 
-            {/* Floating Horizontal Scroll Hint (Desktop) */}
+            {/* Floating Horizontal Scroll Hint (Mobile & Desktop) */}
             <div
-                className="hscroll-scroll-hint hidden md:flex pointer-events-none transition-opacity duration-300 absolute bottom-5 right-8 z-20 items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/60 border border-white/10 backdrop-blur-md text-[10px] font-mono tracking-widest uppercase text-neutral-300"
+                className="hscroll-scroll-hint flex pointer-events-none transition-opacity duration-300 absolute bottom-3 right-4 sm:bottom-5 sm:right-8 z-20 items-center gap-1.5 sm:gap-2 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-black/75 border border-white/15 backdrop-blur-md text-[9px] sm:text-[10px] font-mono tracking-widest uppercase text-neutral-300"
             >
                 <span>SCROLL HORIZONTALLY</span>
                 <svg

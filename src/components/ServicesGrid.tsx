@@ -42,15 +42,16 @@ export const ServicesGrid: React.FC<ServicesGridProps> = ({ onOpenBrief }) => {
       if (headerRef.current) {
         gsap.fromTo(
           headerRef.current,
-          { opacity: 0, y: 50 },
+          { opacity: 0, y: 25 },
           {
             opacity: 1,
             y: 0,
-            duration: 0.9,
-            ease: "power3.out",
+            duration: 0.5,
+            ease: "power2.out",
             scrollTrigger: {
               trigger: headerRef.current,
-              start: "top 85%",
+              start: "top 90%",
+              once: true,
             },
           }
         );
@@ -59,24 +60,31 @@ export const ServicesGrid: React.FC<ServicesGridProps> = ({ onOpenBrief }) => {
       if (cardsRef.current) {
         gsap.fromTo(
           cardsRef.current.children,
-          { opacity: 0, y: 45, scale: 0.96 },
+          { opacity: 0, y: 20 },
           {
             opacity: 1,
             y: 0,
-            scale: 1,
-            stagger: 0.15,
-            duration: 0.9,
-            ease: "power3.out",
+            stagger: 0.08,
+            duration: 0.5,
+            ease: "power2.out",
             scrollTrigger: {
               trigger: cardsRef.current,
-              start: "top 80%",
+              start: "top 95%",
+              once: true,
             },
           }
         );
       }
     }, sectionRef);
 
-    return () => ctx.revert();
+    const timer = setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 150);
+
+    return () => {
+      clearTimeout(timer);
+      ctx.revert();
+    };
   }, []);
 
   const practices = [

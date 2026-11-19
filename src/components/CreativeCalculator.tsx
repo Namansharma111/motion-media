@@ -22,12 +22,12 @@ export const CreativeCalculator: React.FC<CreativeCalculatorProps> = ({
   const calcCardRef = useRef<HTMLDivElement>(null);
 
   const servicePrices: Record<string, { base: number; name: string }> = {
-    video: { base: 850, name: "Video Production" },
-    photoshoot: { base: 450, name: "Product Photography" },
-    podcast: { base: 550, name: "Podcast Production" },
-    youtube: { base: 600, name: "YouTube Content" },
-    corporate: { base: 950, name: "Brand & Corporate Films" },
-    creative: { base: 750, name: "Creative Direction" },
+    video: { base: 25000, name: "Video Production" },
+    photoshoot: { base: 15000, name: "Product Photography" },
+    podcast: { base: 18000, name: "Podcast Production" },
+    youtube: { base: 15000, name: "YouTube Content" },
+    corporate: { base: 45000, name: "Brand & Corporate Films" },
+    creative: { base: 20000, name: "Creative Direction" },
   };
 
   const durationMultipliers: Record<string, number> = {
@@ -81,11 +81,11 @@ export const CreativeCalculator: React.FC<CreativeCalculatorProps> = ({
   }, []);
 
   const calculatePrice = () => {
-    const base = servicePrices[serviceType]?.base || 850;
+    const base = servicePrices[serviceType]?.base || 25000;
     const mult = durationMultipliers[duration] || 1.0;
     let total = base * mult;
-    if (rushOrder) total += 350;
-    if (formatCount === "all") total += 150;
+    if (rushOrder) total += 8000;
+    if (formatCount === "all") total += 4000;
     return Math.round(total);
   };
 
@@ -97,7 +97,7 @@ export const CreativeCalculator: React.FC<CreativeCalculatorProps> = ({
   };
 
   const handleBookQuote = () => {
-    const quoteSummary = `${servicePrices[serviceType].name} (${duration}) - Est. $${calculatePrice()} [${getEstimatedDays()}]`;
+    const quoteSummary = `${servicePrices[serviceType].name} (${duration}) - Est. ₹${calculatePrice().toLocaleString('en-IN')} [${getEstimatedDays()}]`;
     onOpenBriefWithDetails(quoteSummary);
   };
 
@@ -239,7 +239,7 @@ export const CreativeCalculator: React.FC<CreativeCalculatorProps> = ({
               <div className="text-center py-4">
                 <div className="text-xs text-neutral-400 font-sans uppercase tracking-widest mb-1">Total Estimated Project Fee</div>
                 <div className="font-bebas text-7xl sm:text-8xl text-white tracking-tight text-glow-gradient">
-                  ${calculatePrice()}
+                  ₹{calculatePrice().toLocaleString("en-IN")}
                 </div>
                 <div className="text-xs text-white/90 font-mono mt-1 flex items-center justify-center gap-1">
                   <Clock className="w-3.5 h-3.5 text-[#EE1C25]" />

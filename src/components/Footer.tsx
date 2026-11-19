@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { BrandLogo } from "./BrandLogo";
-import { ArrowUp, Camera, Video, Share2, Globe, Mail, MapPin, Clock } from "lucide-react";
+import { ArrowUp, Camera, Video, Share2, Globe, Mail, MapPin, Clock, Phone, MessageCircle } from "lucide-react";
 
 export const Footer: React.FC = () => {
   const [timeStr, setTimeStr] = useState("");
@@ -68,12 +68,31 @@ export const Footer: React.FC = () => {
             </h4>
             <div className="space-y-3 text-sm">
               <div className="flex items-center gap-2">
-                <Mail className="w-4 h-4 text-[#EE1C25]" />
-                <a href="mailto:hello@motionmedia.studio" className="hover:text-white transition-colors">hello@motionmedia.studio</a>
+                <Phone className="w-4 h-4 text-[#EE1C25]" />
+                <a href="tel:+919358997828" className="hover:text-white transition-colors font-medium">
+                  +91 93589 97828 (Call)
+                </a>
               </div>
               <div className="flex items-center gap-2">
-                <MapPin className="w-4 h-4 text-[#465199]" />
-                <span>Motion Media Studios • Global Remote & On-Site</span>
+                <MessageCircle className="w-4 h-4 text-[#25D366]" />
+                <a
+                  href="https://wa.me/919358997828"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#25D366] transition-colors font-medium"
+                >
+                  +91 93589 97828 (WhatsApp)
+                </a>
+              </div>
+              <div className="flex items-center gap-2">
+                <Mail className="w-4 h-4 text-[#465199]" />
+                <a href="mailto:hello@motionmedia.studio" className="hover:text-white transition-colors">
+                  hello@motionmedia.studio
+                </a>
+              </div>
+              <div className="flex items-center gap-2">
+                <MapPin className="w-4 h-4 text-neutral-400" />
+                <span>Motion Media Studios • India</span>
               </div>
             </div>
 

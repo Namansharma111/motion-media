@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
-import { ArrowRight, Play, Zap, ShieldCheck, Award } from "lucide-react";
+import { ArrowRight, Play, Zap, ShieldCheck, Award, Phone, MessageCircle } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -170,7 +170,7 @@ export const CTASection: React.FC<CTASectionProps> = ({ onOpenBrief, onOpenReel 
             {/* Secondary CTA: White base with Blue left-to-right fill */}
             <button
               onClick={onOpenReel}
-              className="relative group overflow-hidden w-full sm:w-auto px-8 py-3.5 bg-white border border-slate-300 text-slate-900 font-bebas text-xl sm:text-2xl tracking-wider uppercase rounded-xl shadow-xs active:scale-95 transition-all flex items-center justify-center gap-2.5"
+              className="relative group overflow-hidden w-full sm:w-auto px-8 py-3.5 bg-white border border-slate-300 text-slate-900 font-bebas text-xl sm:text-2xl tracking-wider uppercase rounded-xl shadow-xs active:scale-95 transition-all flex items-center justify-center gap-2.5 cursor-pointer"
             >
               <span className="absolute inset-0 bg-[#465199] -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out" />
               <span className="relative z-10 flex items-center gap-2 group-hover:text-white transition-colors duration-200">
@@ -180,8 +180,29 @@ export const CTASection: React.FC<CTASectionProps> = ({ onOpenBrief, onOpenReel 
             </button>
           </div>
 
+          {/* Quick Direct Call & WhatsApp Helpline */}
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-2.5 text-xs sm:text-sm font-sans font-medium text-slate-700">
+            <span className="text-slate-500">Need immediate consultation?</span>
+            <a
+              href="tel:+919358997828"
+              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-900 transition-colors font-semibold"
+            >
+              <Phone className="w-3.5 h-3.5 text-[#EE1C25]" />
+              <span>Call: +91 93589 97828</span>
+            </a>
+            <a
+              href="https://wa.me/919358997828"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 transition-colors font-semibold"
+            >
+              <MessageCircle className="w-3.5 h-3.5 text-[#25D366]" />
+              <span>WhatsApp Chat</span>
+            </a>
+          </div>
+
           {/* Bottom Security Guarantee */}
-          <div className="mt-8 flex items-center justify-center gap-2 text-slate-500 text-xs sm:text-sm font-sans font-medium">
+          <div className="mt-6 flex items-center justify-center gap-2 text-slate-500 text-xs sm:text-sm font-sans font-medium">
             <ShieldCheck className="w-4 h-4 text-[#465199]" />
             <span>100% Custom Production • Free Concept Strategy Session in 15 Minutes</span>
           </div>
